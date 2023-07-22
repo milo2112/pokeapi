@@ -35,8 +35,8 @@ function YourPokemonCard () {
         </Col>
         <Col className='textProfile'>
           <ul>
-            {pokeProfile?.stats?.map(({ stat: { name } }) => (
-              <li key={name}>{name}: base_stat</li>
+            {pokeProfile?.stats?.map(({ base_stat: value, stat: { name } }) => (
+              <li key={name}>{name}: {value} </li>
             ))}
           </ul>
         </Col>
