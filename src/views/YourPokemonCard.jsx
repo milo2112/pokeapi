@@ -34,7 +34,7 @@ function YourPokemonCard () {
           <img src={pokeProfile?.sprites?.other?.dream_world?.front_default} alt='Pokemon img' width='500' height='600' />
         </Col>
         <Col className='textProfile'>
-          <ul>
+          <ul className='textProfile'>
             {pokeProfile?.stats?.map(({ base_stat: value, stat: { name } }) => (
               <li key={name}>{name}: {value} </li>
             ))}
