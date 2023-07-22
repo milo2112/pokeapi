@@ -1,0 +1,12 @@
+.imgPokemon {
+    max-width: 100%;
+    height: auto;
+    background-color: black;
+}
+
+.textProfile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 600px;
+}

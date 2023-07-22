@@ -12,7 +12,7 @@ export default function Navigation () {
       <Navbar expand='lg' bg='dark' data-bs-theme='dark'>
         <Container>
           <Navbar.Brand>
-            <NavLink to='/' className='text-white text-decoration-none'>PokeAPI</NavLink>
+            <NavLink to='/' className='text-white text-decoration-none'><img src='./src/assets/img/logo.png' alt='logo' style={{ width: '50px' }} /></NavLink>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
           <Navbar.Collapse id='basic-navbar-nav'>

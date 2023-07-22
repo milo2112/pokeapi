@@ -1,0 +1,5 @@
+.mainPicContainer {
+    width: 500px;
+    image-rendering: smooth;
+    image-rendering: high-quality;
+}

@@ -1,12 +1,47 @@
-import React from 'react'
 import { useParams } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import '../assets/css/yourPokemonStyles.css'
+import { Container, Row, Col } from 'react-bootstrap'
 
 function YourPokemonCard () {
+  const endpoint = 'https://pokeapi.co/api/v2/pokemon'
   const { name } = useParams()
+  const [pokeProfile, setPokeProfile] = useState()
+
+  const getData = async (url) => {
+    try {
+      const resp = await fetch(url)
+      const data = await resp.json()
+      setPokeProfile(data)
+      console.log(data)
+      // return data
+    } catch (err) {
+      console.error(err.message)
+    }
+  }
+
+  useEffect(() => {
+    getData(`${endpoint}/${name}`)
+  }, [name])
+
   return (
-    <div className='display-6 mt-5 ms-5'>Hi {name}!
-      Below you've got to put the card showing selected pokemon's data
-    </div>
+    <Container className='text-center Fluid'>
+      <div className='display-6 mt-5 ms-5'>
+        This is {name}!
+      </div>
+      <Row>
+        <Col>
+          <img src={pokeProfile?.sprites?.other?.dream_world?.front_default} alt='Pokemon img' width='500' height='600' />
+        </Col>
+        <Col className='textProfile'>
+          <ul>
+            {pokeProfile?.stats?.map(({ stat: { name } }) => (
+              <li key={name}>{name}: base_stat</li>
+            ))}
+          </ul>
+        </Col>
+      </Row>
+    </Container>
   )
 }
 
