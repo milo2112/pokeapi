@@ -26,6 +26,7 @@ export default function FormSearchYourPokemon () {
         <Form.Group className='mb-5'>
           <Form.Label>What Pokemon are you looking for?</Form.Label>
           <Form.Select
+            className='mt-5'
             defaultValue='Pokemons'
             size='lg'
             onChange={(e) => setPokemonName(e.target.value)}
