@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import '../assets/css/yourPokemonStyles.css'
-import { Container, Row, Col } from 'react-bootstrap'
+import { Container, Row, Col, ListGroup } from 'react-bootstrap'
 
 function YourPokemonCard () {
   const endpoint = 'https://pokeapi.co/api/v2/pokemon'
@@ -31,14 +31,14 @@ function YourPokemonCard () {
       </div>
       <Row>
         <Col>
-          <img src={pokeProfile?.sprites?.other?.dream_world?.front_default} alt='Pokemon img' width='500' height='600' />
+          <img src={pokeProfile?.sprites?.other?.dream_world?.front_default} alt='Pokemon img' width='500' height='600' className='elmntPicture' />
         </Col>
-        <Col className='textProfile'>
-          <ul className='textProfile'>
+        <Col className='elmntProfile'>
+          <ListGroup gap={4} variant='outline-danger'>
             {pokeProfile?.stats?.map(({ base_stat: value, stat: { name } }) => (
-              <li key={name}>{name}: {value} </li>
+              <ListGroup.Item key={name} className='p-2' variant='success'>{name}: {value} </ListGroup.Item>
             ))}
-          </ul>
+          </ListGroup>
         </Col>
       </Row>
     </Container>
